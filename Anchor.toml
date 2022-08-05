@@ -2,14 +2,14 @@
 seeds = false
 skip-lint = false
 [programs.localnet]
-test_solana = "Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS"
+test_solana = "4iQ2KSjKPtSzf9DdWeCSfXZsuWDTcDCgD9gACP5TLE6y"
 
 [registry]
 url = "https://api.apr.dev"
 
 [provider]
 cluster = "localnet"
-wallet = "/home/amar/.config/solana/id.json"
+wallet = "/Users/babin39/.config/solana/id.json"
 
 [scripts]
 test = "yarn run mocha -t 1000000 tests/"
