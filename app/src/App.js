@@ -1,15 +1,15 @@
 import './App.css'
-import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
+import {BrowserRouter,Route, Routes} from 'react-router-dom'
 import Appbar from './components/Appbar';
 
 function App() {
   return (
-    <div className="App">
-      <Routes>
-        <Router>
+    <div>
+      <BrowserRouter>
+        <Routes>
             <Route path='/' element={<Appbar/>}/>
-        </Router>
-      </Routes>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
