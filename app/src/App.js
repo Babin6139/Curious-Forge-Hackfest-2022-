@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './pages/home';
 import RegistrationRequestForm from './pages/registration-request';
 import Layout from './components/layout.js';
+import AssetDescription from './pages/asset-description';
 
 function App() {
   return (
@@ -14,6 +15,10 @@ function App() {
             <Route
               path="/request-registration"
               element={<RegistrationRequestForm />}
+            ></Route>
+            <Route
+              path="/asset-description"
+              element={<AssetDescription />}
             ></Route>
           </Route>
         </Routes>
