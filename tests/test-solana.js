@@ -1,15 +1,12 @@
-import * as anchor from "@project-serum/anchor";
-import { Program } from "@project-serum/anchor";
-import { Hackfest } from "../target/types/hackfest";
+const anchor = require("@project-serum/anchor");
 
-describe("hackfest", () => {
+describe("test-solana", () => {
   // Configure the client to use the local cluster.
   anchor.setProvider(anchor.AnchorProvider.env());
 
-  const program = anchor.workspace.Hackfest as Program<Hackfest>;
-
   it("Is initialized!", async () => {
     // Add your test here.
+    const program = anchor.workspace.TestSolana;
     const tx = await program.methods.initialize().rpc();
     console.log("Your transaction signature", tx);
   });
