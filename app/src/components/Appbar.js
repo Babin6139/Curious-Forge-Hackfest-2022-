@@ -19,9 +19,10 @@ import './style.css';
 import { useState } from 'react';
 import { Connection, PublicKey } from '@solana/web3.js';
 import {
-  Program, Provider, web3
+  AnchorProvider,
+  Program, web3
 } from '@project-serum/anchor';
-
+import idl from './../pages/home/idl.json'
 import { PhantomWalletAdapter } from '@solana/wallet-adapter-wallets';
 import { useWallet, WalletProvider, ConnectionProvider } from '@solana/wallet-adapter-react';
 import { WalletModalProvider, WalletMultiButton } from '@solana/wallet-adapter-react-ui';
@@ -33,10 +34,11 @@ const wallets = [
 ]
 const { SystemProgram, Keypair } = web3;
 /* create an account  */
-const baseAccount = Keypair.generate();
 const opts = {
   preflightCommitment: "processed"
 }
+const programID = new PublicKey(idl.metadata.address);
+
 
 const pages = ['Dashboard','Register', 'Transfer'];
 const settings = ['Profile', 'Dashboard', 'Logout'];
@@ -58,6 +60,67 @@ const Appbar = () => {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+
+  //Solana programs
+  const wallet= useWallet()
+  const baseAccount = Keypair.generate();
+
+
+  async function getProvider(){
+    /* create the provider and return it to the caller */
+    /* network set to local network for now */
+    const network = "https://api.devnet.solana.com";
+    const connection = new Connection(network, opts.preflightCommitment);
+
+    const provider = new AnchorProvider(
+      connection, wallet, opts.preflightCommitment,
+    );
+    return provider;
+  }
+
+  async function createAccount(){
+    const provider= await getProvider()
+    const program = new Program(idl, programID, provider);
+    
+    try{
+      const [testAccountPda, testAccountPdaBump] = await web3.PublicKey.findProgramAddress(
+        [
+            wallet.publicKey.toBuffer(),
+            Buffer.from("_profile"),
+        ],
+        program.programId,
+    );
+    // await program.rpc.createAccount("Bob","9861234556",{
+    // accounts:{
+    //     userAccount:testAccountPda,
+    //     authority:wallet.publicKey,
+    //     systemProgram:SystemProgram.programId
+    //   },
+    //   signers:[]
+    // },
+    // );
+      // await program.methods.createAccount({
+      //   accounts:{
+      //     userAccount:testAccountPda,
+      //     authority:provider.wallet.publicKey,
+      //     SystemProgram:SystemProgram.programId
+      //   },
+      //   signers:[baseAccount],
+      //   args:{
+      //     name:'Ankit',
+      //     phoneNo:'9876543210'
+      //   }
+      // }).rpc()
+
+      const account=await program.account.userData.fetch(testAccountPda);
+      console.log(`My name is : ${account.name} and ${account.phoneNo}`);
+
+    }catch(err){
+      console.log(err);
+    }
+
+
+  }
 
   return (
     <AppBar className='appbar' position="static" sx={{background:'#1F2521'}}>
@@ -154,9 +217,10 @@ const Appbar = () => {
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Connect Your Wallet">
             <WalletMultiButton/> 
-            </Tooltip>
+            {
+              wallet.connected && <Button onClick={createAccount}>Create Account</Button>
+            }
           </Box>
         </Toolbar>
       </Container>
@@ -166,7 +230,7 @@ const Appbar = () => {
 
 /* wallet configuration as specified here: https://github.com/solana-labs/wallet-adapter#setup */
 const AppBarWithProvider = () => (
-  <ConnectionProvider endpoint="http://127.0.0.1:8899">
+  <ConnectionProvider endpoint="https://api.devnet.solana.com">
     <WalletProvider wallets={wallets} autoConnect>
       <WalletModalProvider>
         <Appbar />
