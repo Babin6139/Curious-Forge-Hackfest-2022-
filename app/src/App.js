@@ -4,6 +4,7 @@ import Home from './pages/home';
 import RegistrationRequestForm from './pages/registration-request';
 import Layout from './components/layout.js';
 import AssetDescription from './pages/asset-description';
+import ListUsers from './pages/view-users';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
               path="/asset-description"
               element={<AssetDescription />}
             ></Route>
+            <Route path="/admin/list-users" element={<ListUsers />}></Route>
           </Route>
         </Routes>
       </BrowserRouter>
