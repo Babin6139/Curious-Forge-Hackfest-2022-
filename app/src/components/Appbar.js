@@ -90,15 +90,15 @@ const Appbar = () => {
         ],
         program.programId,
     );
-    // await program.rpc.createAccount("Bob","9861234556",{
-    // accounts:{
-    //     userAccount:testAccountPda,
-    //     authority:wallet.publicKey,
-    //     systemProgram:SystemProgram.programId
-    //   },
-    //   signers:[]
-    // },
-    // );
+    await program.rpc.createAccount("Amar","9862230459",{
+    accounts:{
+        userAccount:testAccountPda,
+        authority:wallet.publicKey,
+        systemProgram:SystemProgram.programId
+      },
+      signers:[]
+    },
+    );
       // await program.methods.createAccount({
       //   accounts:{
       //     userAccount:testAccountPda,
@@ -107,7 +107,7 @@ const Appbar = () => {
       //   },
       //   signers:[baseAccount],
       //   args:{
-      //     name:'Ankit',
+      //     name:'Ankit'
       //     phoneNo:'9876543210'
       //   }
       // }).rpc()
