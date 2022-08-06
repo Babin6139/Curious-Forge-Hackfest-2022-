@@ -3,6 +3,7 @@ import { Box, Container } from '@mui/system';
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import Appbar from '../Appbar';
+import Footer from '../footer.js/footer';
 
 const Layout = () => {
   return (
@@ -13,7 +14,14 @@ const Layout = () => {
       <Box>
         <Outlet />
       </Box>
-      <Box></Box>
+      <div style={{
+        border:'1px solid white',
+        marginTop:'2rem',
+        marginBottom:'2rem'
+      }}></div>
+      <Box>
+        <Footer/>
+      </Box>
     </Container>
   );
 };

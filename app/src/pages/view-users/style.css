@@ -1,0 +1,22 @@
+.top-box {
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 100px;
+}
+
+.standard-basic {
+  top: 3px;
+  color: aliceblue;
+  background-color: #f5f5f5;
+  width: 350px;
+  border-radius: 10px;
+}
+
+.check-box-parent {
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
