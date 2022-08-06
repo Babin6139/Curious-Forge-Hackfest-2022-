@@ -102,13 +102,6 @@ const Home = () => {
           
         </Grid>
       </Box>
-      <Divider/>
-      <div style={{
-        border:'1px solid white',
-        marginTop:'2rem',
-        marginBottom:'2rem'
-      }}></div>
-      <Footer/>
     </Container>
   )
 };

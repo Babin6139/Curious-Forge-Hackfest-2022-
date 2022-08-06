@@ -5,6 +5,8 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import {Link} from 'react-router-dom'
+import './style.css'
 
 export default function MediaCard(props) {
   return (
@@ -29,8 +31,10 @@ export default function MediaCard(props) {
           Price:{props.cardData.governmentPrice}
         </Typography>
       </CardContent>
-      <CardActions>
-        <Button size="small">Transfer</Button>
+      <CardActions sx={{padding:'0'}}>
+        <Button className='transfer-button' sx={{background:'#1F2521', color:'white', width:'100%', borderRadius:'0'}} size="large">
+         <Link to='/asset-description' style={{textDecoration:'none', color:'white' }}>Transfer</Link>
+        </Button>
       </CardActions>
     </Card>
   );
