@@ -7,11 +7,12 @@ import assetDescription from './assetDescription';
 const AssetDescription = () => {
   const [imageIndex, setImageIndex] = useState(0);
 
-  //   const changeImage = (n) => {
-  //     setImageIndex(imageIndex + n);
-  //     if (imageIndex == imageLinks.length) setImageIndex(0);
-  //     else if (imageIndex < 0) setImageIndex(imageLinks.length - 1);
-  //   };
+  const changeImage = (n) => {
+    const result = imageIndex + n;
+    if (result == assetDescription.images.length) setImageIndex(0);
+    else if (result < 0) setImageIndex(assetDescription.images.length - 1);
+    else setImageIndex(result);
+  };
 
   return (
     <Box className="parent-box">
@@ -33,14 +34,14 @@ const AssetDescription = () => {
         </Box>
         <Box className="image-slider-container">
           <Button
-            // onClick={changeImage(-1)}
+            onClick={() => changeImage(-1)}
             variant="outlined"
             className="image-sliders"
           >
             Prev
           </Button>
           <Button
-            // onClick={changeImage(+1)}
+            onClick={() => changeImage(+1)}
             variant="outlined"
             className="image-sliders"
           >
