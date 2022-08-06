@@ -77,7 +77,7 @@ pub fn mint(
             metadata_uri, 
             None,
             1,
-            true, 
+            false, 
             false, 
             None, 
             None,

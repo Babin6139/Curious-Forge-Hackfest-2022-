@@ -54,8 +54,8 @@ describe("test-solana", () => {
   it("Mint!", async () => {
 
     // Derive the mint address and the associated token account address
-    console.log(wallet.publicKey);
-    console.log(testWallet.publicKey);
+    console.log(wallet);
+    console.log(testWallet);
     const mintKeypair = anchor.web3.Keypair.generate();
     const tokenAddress = await anchor.utils.token.associatedAddress({
       mint: mintKeypair.publicKey,
