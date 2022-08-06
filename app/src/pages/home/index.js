@@ -1,7 +1,6 @@
 import { AccountBalanceWalletOutlined, ViewStreamOutlined } from '@mui/icons-material';
-import { AppBar, Box, Card, CardContent, CardHeader, Container, Divider, Grid, ImageList, ImageListItem, Typography } from '@mui/material';
+import { Box, Card, CardContent, CardHeader, Container, Divider, Grid, Typography } from '@mui/material';
 import React from 'react';
-import { Outlet } from 'react-router-dom';
 import Footer from '../../components/footer.js/footer';
 
 const Home = () => {
