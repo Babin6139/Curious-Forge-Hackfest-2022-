@@ -23,22 +23,6 @@ const assetData=[
         soleOwner:"true",
         governmentPrice:"25000000 per aana"
     },
-    {
-        owner:"Ram Thapa",
-        location:"Bhaktapur",
-        image:"https://cdn.landsearch.com/listings/4kZsx/large/lubec-me-89708171.jpg",
-        mohini:"None",
-        soleOwner:"true",
-        governmentPrice:"25000000 per aana"
-    },
-    {
-        owner:"Ram Thapa",
-        location:"Bhaktapur",
-        image:"https://cdn.landsearch.com/listings/4kZsx/large/lubec-me-89708171.jpg",
-        mohini:"None",
-        soleOwner:"true",
-        governmentPrice:"25000000 per aana"
-    },
 ];
 
 export default assetData;

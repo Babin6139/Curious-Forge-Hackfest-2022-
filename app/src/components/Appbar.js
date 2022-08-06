@@ -141,7 +141,7 @@ const Appbar = () => {
               textDecoration: 'none',
             }}
           >
-            Asset House
+            Asset Bank
           </Typography>
           </Link>
 
@@ -200,7 +200,7 @@ const Appbar = () => {
               textDecoration: 'none',
             }}
           >
-           Asset House
+           Asset Bank
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (

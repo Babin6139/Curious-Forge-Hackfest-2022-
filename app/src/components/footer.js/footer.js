@@ -16,7 +16,7 @@ const Footer = () => {
                         fontWeight:'400',
                         fontSize:'1.5rem'
                     }}>
-                    Asset House
+                    Asset Bank
                 </Typography>
                 </Box>
             </Grid>
@@ -42,7 +42,7 @@ const Footer = () => {
                 <Typography variant='h6' sx={{color:'white'}}>Learn</Typography>
                 <Typography variant='body1'>
                     <Link style={{textDecoration:'none', color:'white', opacity:'.6', cursor:'pointer'}} to='/about-us'>
-                        What is Asset House?
+                        What is Asset Bank?
                     </Link>
                 </Typography>
                 <Typography sx={{color:'white', opacity:'.6',}}>
@@ -51,7 +51,7 @@ const Footer = () => {
 
                 </Typography>
             </Grid>
-            <Typography align='center' sx={{width:'100%',color:'white', opacity:'.8', marginTop:'2rem', marginBottom:'2rem'}}>&copy; {date.getFullYear()} Asset House. All rights reserved </Typography>
+            <Typography align='center' sx={{width:'100%',color:'white', opacity:'.8', marginTop:'2rem', marginBottom:'2rem'}}>&copy; {date.getFullYear()} Asset Bank. All rights reserved </Typography>
 
         </Grid>
     );
