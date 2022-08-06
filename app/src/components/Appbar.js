@@ -13,11 +13,33 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import {LocationCityRounded} from '@mui/icons-material';
 import { Link } from 'react-router-dom';
-import './style.css'
+import './style.css';
+
+//Solana wallet
+import { useState } from 'react';
+import { Connection, PublicKey } from '@solana/web3.js';
+import {
+  Program, Provider, web3
+} from '@project-serum/anchor';
+
+import { PhantomWalletAdapter } from '@solana/wallet-adapter-wallets';
+import { useWallet, WalletProvider, ConnectionProvider } from '@solana/wallet-adapter-react';
+import { WalletModalProvider, WalletMultiButton } from '@solana/wallet-adapter-react-ui';
+require('@solana/wallet-adapter-react-ui/styles.css');
+
+const wallets = [
+  /* view list of available wallets at https://github.com/solana-labs/wallet-adapter#wallets */
+  new PhantomWalletAdapter()
+]
+const { SystemProgram, Keypair } = web3;
+/* create an account  */
+const baseAccount = Keypair.generate();
+const opts = {
+  preflightCommitment: "processed"
+}
 
 const pages = ['Dashboard','Register', 'Transfer'];
 const settings = ['Profile', 'Dashboard', 'Logout'];
-
 const Appbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -132,37 +154,24 @@ const Appbar = () => {
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-              </IconButton>
+            <Tooltip title="Connect Your Wallet">
+            <WalletMultiButton/> 
             </Tooltip>
-            <Menu
-              sx={{ mt: '45px' }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
           </Box>
         </Toolbar>
       </Container>
     </AppBar>
   );
 };
-export default Appbar;
+
+/* wallet configuration as specified here: https://github.com/solana-labs/wallet-adapter#setup */
+const AppBarWithProvider = () => (
+  <ConnectionProvider endpoint="http://127.0.0.1:8899">
+    <WalletProvider wallets={wallets} autoConnect>
+      <WalletModalProvider>
+        <Appbar />
+      </WalletModalProvider>
+    </WalletProvider>
+  </ConnectionProvider>
+)
+export default AppBarWithProvider;

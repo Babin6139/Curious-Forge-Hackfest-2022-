@@ -2,14 +2,14 @@ import { TableFooter } from '@mui/material';
 import { Box, Container } from '@mui/system';
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import Appbar from '../Appbar';
+import AppBarWithProvider from '../Appbar';
 import Footer from '../footer.js/footer';
 
 const Layout = () => {
   return (
     <Container maxWidth="100%" disableGutters>
       <Box>
-        <Appbar />
+        <AppBarWithProvider />
       </Box>
       <Box>
         <Outlet />
