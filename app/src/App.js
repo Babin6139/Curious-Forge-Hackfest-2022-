@@ -6,6 +6,7 @@ import Layout from './components/layout.js';
 import AssetDescription from './pages/asset-description';
 import ListUsers from './pages/view-users';
 import Dashboard from './pages/dashboard';
+import Transfer from "./pages/transfer"
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/" element={<Layout />}>
             <Route path="/" element={<Home />} />
             <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/transfer" element={<Transfer />} />
             <Route
               path="/register"
               element={<RegistrationRequestForm />}
