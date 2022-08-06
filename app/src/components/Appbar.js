@@ -56,7 +56,7 @@ const Appbar = () => {
               textDecoration: 'none',
             }}
           >
-            Land Management
+            Asset House
           </Typography>
           </Link>
 
@@ -91,7 +91,9 @@ const Appbar = () => {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center" sx={{color:'white'}}>{page}</Typography>
+                  <Link to={`/${page.toLowerCase()}`} style={{textDecoration:'none', color:'white', cursor:'pointer'}}>
+                  {page}
+                  </Link>
                 </MenuItem>
               ))}
             </Menu>
@@ -113,7 +115,7 @@ const Appbar = () => {
               textDecoration: 'none',
             }}
           >
-           Logo
+           Asset House
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
@@ -122,7 +124,9 @@ const Appbar = () => {
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
+              <Link to={`/${page.toLowerCase()}`} style={{textDecoration:'none', color:'white', cursor:'pointer'}}>
                 {page}
+              </Link>
               </Button>
             ))}
           </Box>

@@ -5,6 +5,7 @@ import RegistrationRequestForm from './pages/registration-request';
 import Layout from './components/layout.js';
 import AssetDescription from './pages/asset-description';
 import ListUsers from './pages/view-users';
+import Dashboard from './pages/dashboard';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route path="/" element={<Home />} />
+            <Route path="/dashboard" element={<Dashboard />} />
             <Route
               path="/request-registration"
               element={<RegistrationRequestForm />}
