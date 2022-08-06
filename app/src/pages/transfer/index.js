@@ -31,10 +31,11 @@ const Transfer = () => {
         }
         setBtnState('Transferring....')
         setTimeout(() => {
-            setBtnState('')
+        setBtnState('')
+        setMsg("Successfully Transferred!!!!")
+
         }, 3000)
 
-        setMsg("Successfully Transferred!!!!")
     }
   return (
     <Box>
