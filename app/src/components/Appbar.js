@@ -56,7 +56,7 @@ const Appbar = () => {
               textDecoration: 'none',
             }}
           >
-            Land Management
+            Asset House
           </Typography>
           </Link>
 

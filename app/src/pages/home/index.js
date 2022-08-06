@@ -1,6 +1,7 @@
-import { AppBar, Box, Container, Grid, ImageList, ImageListItem, Typography } from '@mui/material';
+import { AppBar, Box, Container, Divider, Grid, ImageList, ImageListItem, Typography } from '@mui/material';
 import React from 'react';
 import { Outlet } from 'react-router-dom';
+import Footer from '../../components/footer.js/footer';
 
 const Home = () => {
   return(
@@ -42,7 +43,7 @@ const Home = () => {
             </Typography>
           </Box>
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={6} sx={{display:{xs:'none', md:'flex'}}}>
               <img src='https://cdn.landsearch.com/modules/home/img/land-sales.png' 
                   style={{
                     width:'500px', 
@@ -69,7 +70,13 @@ const Home = () => {
             collaborating with the government. Asset House is customizable multi-sig on Solana.
             </Typography>
       </Box>
-
+      <Divider/>
+      <div style={{
+        border:'1px solid white',
+        marginTop:'2rem',
+        marginBottom:'2rem'
+      }}></div>
+      <Footer/>
     </Container>
   )
 };
