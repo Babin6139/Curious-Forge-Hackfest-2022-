@@ -1,0 +1,9 @@
+.get-started-btn{
+    background: rgb(255, 255, 255);
+    color:black;
+    padding: .8rem;
+}
+
+.get-started-btn:hover{
+    background: rgba(255, 255, 255, .5);
+}

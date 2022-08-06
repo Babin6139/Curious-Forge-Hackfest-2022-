@@ -10,7 +10,9 @@ import './style.css'
 
 export default function MediaCard(props) {
   return (
+
     <Card sx={{ maxWidth: 345 }}>
+      <Link to='/asset-description' style={{textDecoration:'none', color:'white' }}>
       <CardMedia
         component="img"
         height="140"
@@ -21,9 +23,9 @@ export default function MediaCard(props) {
         color:'#FFFFFF',
         backgroundColor:'#252D2A'
       }}>
-        <Typography gutterBottom variant="h5" component="div">
+        {/* <Typography gutterBottom variant="h5" component="div">
           Owner: {props.cardData.owner}
-        </Typography>
+        </Typography> */}
         <Typography variant="body2">
           Location:{props.cardData.location}
         </Typography>
@@ -31,9 +33,10 @@ export default function MediaCard(props) {
           Price:{props.cardData.governmentPrice}
         </Typography>
       </CardContent>
+      </Link>
       <CardActions sx={{padding:'0'}}>
         <Button className='transfer-button' sx={{background:'#1F2521', color:'white', width:'100%', borderRadius:'0'}} size="large">
-         <Link to='/asset-description' style={{textDecoration:'none', color:'white' }}>Transfer</Link>
+         Transfer
         </Button>
       </CardActions>
     </Card>

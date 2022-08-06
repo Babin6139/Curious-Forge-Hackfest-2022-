@@ -1,7 +1,7 @@
 import { AccountBalanceWalletOutlined, ViewStreamOutlined } from '@mui/icons-material';
-import { Box, Card, CardContent, CardHeader, Container, Divider, Grid, Typography } from '@mui/material';
+import { Box, Button, Card, CardContent, CardHeader, Container, Grid, Typography } from '@mui/material';
 import React from 'react';
-import Footer from '../../components/footer.js/footer';
+import './style.css'
 
 const Home = () => {
   return(
@@ -41,6 +41,9 @@ const Home = () => {
           }}>
             for registering and transforming your assets. 
             </Typography>
+          </Box>
+          <Box sx={{marginTop:'2rem'}}>
+            <Button className="get-started-btn">Get Started</Button>
           </Box>
         </Grid>
         <Grid item xs={6} sx={{display:{xs:'none', md:'flex'}}}>
