@@ -1,4 +1,5 @@
-import { AppBar, Box, Container, Divider, Grid, ImageList, ImageListItem, Typography } from '@mui/material';
+import { AccountBalanceWalletOutlined, ViewStreamOutlined } from '@mui/icons-material';
+import { AppBar, Box, Card, CardContent, CardHeader, Container, Divider, Grid, ImageList, ImageListItem, Typography } from '@mui/material';
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import Footer from '../../components/footer.js/footer';
@@ -69,6 +70,38 @@ const Home = () => {
           }}>
             collaborating with the government. Asset House is customizable multi-sig on Solana.
             </Typography>
+      </Box>
+      <Typography align='center' variant="h4" sx={{color:'white', marginTop:'8rem', marginBottom:'5rem'}}>Easy Streaming</Typography> 
+      <Box sx={{background:'rgba(22, 22, 22, 1)', borderRadius:'10px'}}>
+        <Grid container spacing={2} columns={12} padding="2rem">
+          <Grid item xs={6}>
+            <Card sx={{background:'rgba(35, 35, 35, 1)', borderRadius:'10px'}}>
+              <CardHeader avatar={<AccountBalanceWalletOutlined style={{color:'white', height:'4rem', width:'4rem'}}/>}/>
+              <CardContent>
+                <Typography variant='h5' sx={{color:'white'}}>
+                  Connect Wallet
+                </Typography>
+                <Typography variant='body1' sx={{color:'white', opacity:'.8', marginTop:'1rem'}}>
+                Connect to Asset House using your SOL based wallet.                
+                </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+          <Grid item xs={6}>
+          <Card sx={{background:'rgba(35, 35, 35, 1)', borderRadius:'10px'}}>
+              <CardHeader avatar={<ViewStreamOutlined style={{color:'white', height:'4rem', width:'4rem'}}/>}/>
+              <CardContent>
+                <Typography variant='h5' sx={{color:'white'}}>
+                  Start Streaming
+                </Typography>
+                <Typography variant='body1' sx={{color:'white', opacity:'.8', marginTop:'1rem'}}>
+                Enter the recipient wallet address and start streaming the money.                
+                </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+          
+        </Grid>
       </Box>
       <Divider/>
       <div style={{
