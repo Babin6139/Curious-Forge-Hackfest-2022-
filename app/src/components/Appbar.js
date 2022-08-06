@@ -12,6 +12,8 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import {LocationCityRounded} from '@mui/icons-material';
+import { Link } from 'react-router-dom';
+import './style.css'
 
 const pages = ['Dashboard','Register', 'Transfer'];
 const settings = ['Profile', 'Dashboard', 'Logout'];
@@ -36,15 +38,15 @@ const Appbar = () => {
   };
 
   return (
-    <AppBar style={{background:'#000000'}} position="static">
+    <AppBar className='appbar' position="static" sx={{background:'#1F2521'}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <LocationCityRounded sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          <Link to={'/'} style={{color:'#FFFFFF',textDecoration:'none'}}>
           <Typography
             variant="h6"
             noWrap
             component="a"
-            href="/"
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
@@ -56,6 +58,7 @@ const Appbar = () => {
           >
             Land Management
           </Typography>
+          </Link>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
@@ -88,7 +91,7 @@ const Appbar = () => {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                  <Typography textAlign="center" sx={{color:'white'}}>{page}</Typography>
                 </MenuItem>
               ))}
             </Menu>
