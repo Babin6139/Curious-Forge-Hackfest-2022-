@@ -61,16 +61,16 @@ const Home = () => {
             fontSize:'1rem',
             letterSpacing:'.08rem',
           }}>
-            Asset House is based on NFT protocol on
+            Asset Bank is based on NFT protocol on
             <img src='https://zebec.io/img/solanaLogo.png' style={{marginLeft:'15px'}} alt='solana'/>
-            . Asset House is enabling composable transfer of
+            . Asset Bank is enabling composable transfer of
             assets
             </Typography>
           <Typography variant='div' sx={{
             fontSize:'1rem',
             letterSpacing:'.08rem',
           }}>
-            collaborating with the government. Asset House is customizable multi-sig on Solana.
+            collaborating with the government. Asset Bank is customizable multi-sig on Solana.
             </Typography>
       </Box>
       <Typography align='center' variant="h4" sx={{color:'white', marginTop:'8rem', marginBottom:'5rem'}}>Easy Streaming</Typography> 
@@ -84,7 +84,7 @@ const Home = () => {
                   Connect Wallet
                 </Typography>
                 <Typography variant='body1' sx={{color:'white', opacity:'.8', marginTop:'1rem'}}>
-                Connect to Asset House using your SOL based wallet.                
+                Connect to Asset Bank using your SOL based wallet.                
                 </Typography>
               </CardContent>
             </Card>
