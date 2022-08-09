@@ -45,7 +45,7 @@ const settings = ['Profile', 'Dashboard', 'Logout'];
 const Appbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
-
+  const [showCreate,setShowCreate]=React.useState(false);
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -219,9 +219,15 @@ const Appbar = () => {
           <Box sx={{ flexGrow: 0 }}>
             <WalletMultiButton/> 
             {
-              wallet.connected && <Button onClick={createAccount}>Create Account</Button>
+              wallet.connected && <Button onClick={()=>setShowCreate(true)}>Create Account</Button>
             }
           </Box>
+          <div className={`popup_form ${showCreate==true?"show":""}`}>
+            <h2>Create your Account</h2>
+            <input type="text" placeholder='Enter your name'></input>
+            <input type="number" placeholder='Enter your phone no.'></input>
+            <input type="submit"></input>
+          </div>
         </Toolbar>
       </Container>
     </AppBar>

@@ -1,3 +1,28 @@
 .appbar{
     color: white;
 }
+
+.popup_form{
+    background-color:rgb(130, 130, 130);
+    border: 1px solid rgba(0, 0, 255, 0.21);
+    color: black;
+    text-align: center;
+    position: fixed;
+    width: 50vw;
+    height: 50vh;
+    top: 25vh;
+    left: 25vw;
+    display: none;
+}
+
+.popup_form input{
+    height: 3em;
+    margin: 3em;
+}
+
+.show{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+   
+}

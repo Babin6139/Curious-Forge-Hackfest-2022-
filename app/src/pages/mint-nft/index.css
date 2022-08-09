@@ -1,0 +1,21 @@
+.mintnft{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mintnft_form{
+    width: 50%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mintnft_form input{
+    width: 60%;
+    height: 2em;
+    margin-bottom: 0.5em;
+}

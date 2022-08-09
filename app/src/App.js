@@ -7,6 +7,7 @@ import AssetDescription from './pages/asset-description';
 import ListUsers from './pages/view-users';
 import Dashboard from './pages/dashboard';
 import Transfer from "./pages/transfer"
+import MintNft from './pages/mint-nft';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
               element={<AssetDescription />}
             ></Route>
             <Route path="/admin/list-users" element={<ListUsers />}></Route>
+            <Route path="/mint-nft" element={<MintNft/>}></Route>
           </Route>
         </Routes>
       </BrowserRouter>
