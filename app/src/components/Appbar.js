@@ -16,7 +16,7 @@ import { Link } from 'react-router-dom';
 import './style.css';
 
 //Solana wallet
-import { useState } from 'react';
+import { useState ,useEffect} from 'react';
 import { Connection, PublicKey } from '@solana/web3.js';
 import {
   AnchorProvider,
@@ -42,10 +42,13 @@ const programID = new PublicKey(idl.metadata.address);
 
 const pages = ['Dashboard','Register', 'Transfer'];
 const settings = ['Profile', 'Dashboard', 'Logout'];
-const Appbar = () => {
+const Appbar = () => {const programID = new PublicKey(idl.metadata.address);
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const [showCreate,setShowCreate]=React.useState(false);
+  const [userName, setUserName]=React.useState('');
+  const [phoneNo, setPhoneNo]=React.useState('');
+  const [accountE,setAccountE]=React.useState(false);
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -64,8 +67,31 @@ const Appbar = () => {
   //Solana programs
   const wallet= useWallet()
   const baseAccount = Keypair.generate();
+  
+  useEffect(()=>{
+    async function getdata(){
+    const provider= await getProvider()
+    const program = new Program(idl, programID, provider);
+    console.log(userName,phoneNo)
+    try{
+      const [testAccountPda, testAccountPdaBump] = await web3.PublicKey.findProgramAddress(
+        [
+            wallet.publicKey.toBuffer(),
+            Buffer.from("_profile"),
+        ],
+        program.programId,
+    );
 
-
+      const account=await program.account.userData.fetch(testAccountPda);
+      setUserName(account.name);
+      setPhoneNo(account.phoneNo);
+      setAccountE(true)
+    }catch(err){
+      console.log(err);
+    }}
+    getdata();
+    return ;
+  },[programID]);
   async function getProvider(){
     /* create the provider and return it to the caller */
     /* network set to local network for now */
@@ -81,7 +107,7 @@ const Appbar = () => {
   async function createAccount(){
     const provider= await getProvider()
     const program = new Program(idl, programID, provider);
-    
+    console.log(userName,phoneNo)
     try{
       const [testAccountPda, testAccountPdaBump] = await web3.PublicKey.findProgramAddress(
         [
@@ -90,7 +116,7 @@ const Appbar = () => {
         ],
         program.programId,
     );
-    await program.rpc.createAccount("Amar","9862230459",{
+    await program.rpc.createAccount(userName,phoneNo,{
     accounts:{
         userAccount:testAccountPda,
         authority:wallet.publicKey,
@@ -216,17 +242,18 @@ const Appbar = () => {
             ))}
           </Box>
 
-          <Box sx={{ flexGrow: 0 }}>
+          <Box sx={{ flexGrow: 0,display:'inline-flex',justifyContent:'space-between',width:'15%'}}>
             <WalletMultiButton/> 
             {
-              wallet.connected && <Button onClick={()=>setShowCreate(true)}>Create Account</Button>
+              wallet.connected & accountE==false? <Button onClick={()=>setShowCreate(true)}>Create Account</Button>:wallet.connected &&<Avatar>{userName.substring(0,1)}</Avatar>
             }
           </Box>
           <div className={`popup_form ${showCreate==true?"show":""}`}>
+            <h1 onClick={()=>setShowCreate(false)}>X</h1>
             <h2>Create your Account</h2>
-            <input type="text" placeholder='Enter your name'></input>
-            <input type="number" placeholder='Enter your phone no.'></input>
-            <input type="submit"></input>
+            <input type="text" value={userName} onChange={(e)=>setUserName(e.target.value)} placeholder='Enter your name'></input>
+            <input type="number" onChange={(e)=>setPhoneNo(e.target.value)} placeholder='Enter your phone no.'></input>
+            <input type="submit" onClick={(e)=>createAccount()}></input>
           </div>
         </Toolbar>
       </Container>

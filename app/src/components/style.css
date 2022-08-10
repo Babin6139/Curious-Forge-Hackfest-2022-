@@ -1,11 +1,10 @@
 .appbar{
     color: white;
 }
-
 .popup_form{
-    background-color:rgb(130, 130, 130);
-    border: 1px solid rgba(0, 0, 255, 0.21);
-    color: black;
+    background-color:#1f2521;
+    border: 2px solid rgba(70, 70, 196, 0.5);
+    color: rgb(255, 255, 255);
     text-align: center;
     position: fixed;
     width: 50vw;
@@ -25,4 +24,20 @@
     flex-direction: column;
     justify-content: center;
    
+}
+
+.popup_form h1{
+    position: absolute;
+    right: 5%;
+    top: 1%;
+    color: rgba(255, 4, 4,0.6);
+    cursor: pointer;
+}
+
+.popup_form h1:hover{
+    color: red;
+}
+.wallet{
+    margin-right: 1em;
+    background-color: blueviolet;
 }
