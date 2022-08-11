@@ -40,7 +40,7 @@ const opts = {
 const programID = new PublicKey(idl.metadata.address);
 
 
-const pages = ['Dashboard','Register', 'Transfer'];
+const pages = ['Dashboard','Register', 'Transfer','Mint-Nft'];
 const settings = ['Profile', 'Dashboard', 'Logout'];
 const Appbar = () => {const programID = new PublicKey(idl.metadata.address);
   const [anchorElNav, setAnchorElNav] = React.useState(null);
