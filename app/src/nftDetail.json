@@ -1,0 +1,10 @@
+{
+    "name": "Land NFT",
+    "symbol": "Lal Purja",
+    "description": "It indicates that the land is owned by the user having this NFT",
+    "seller_fee_basis_points": 5,
+    "external_url": "",
+    "edition": "",
+    "background_color": "000000",
+    "image": "https://nepaliheadlines.com/wp-content/uploads/2016/12/lalpurja-1.jpg "
+}
